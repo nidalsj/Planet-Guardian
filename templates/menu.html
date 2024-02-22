@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="navbar">
+        <div class="logo">
+            <h4>Planet Guardian&nbsp;&reg;</h4>
+        </div>
+
+        <div class="nav-links">
+            <a href="{% url 'home' %}">Home</a>
+            <a href="{% url 'home' %}">Locations</a>
+            <a href="{% url 'blogs' %}">Blogs</a>
+            <a href="{% url 'gallery' %}">Gallery</a>
+            <a href="{% url 'contact' %}">Contact</a>
+            <a href="{% url 'profile' %}">Profile</a>
+        </div>
+
+        <div class="signup-button">
+            {% if not request.user.is_authenticated %}
+                <a href="{% url 'login' %}">
+                    <button><i class="fa-solid fa-user"></i>&nbsp;&nbsp;Login</button>
+                </a>
+            {% else %}
+                <a href="#" onclick="showLogoutConfirmation()">
+                    <button><i class="fa-solid fa-right-from-bracket"></i>&nbsp;&nbsp;Logout</button>
+                </a>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}
